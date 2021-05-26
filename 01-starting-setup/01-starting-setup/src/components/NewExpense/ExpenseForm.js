@@ -5,11 +5,11 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  const [showForm, setShowForm] = useState(false);
-  const [buttonPosition,setButtonPosition]=useState(false);
-  const [showCloseButton,setCloseButton]=useState(false);
-  const[frmBtnDisplay,setFrmBtnDisplay]=useState(false);
- 
+  // const [showForm, setShowForm] = useState(false);
+  // const [buttonPosition,setButtonPosition]=useState(false);
+  // const [showCloseButton,setCloseButton]=useState(false);
+  // const[frmBtnDisplay,setFrmBtnDisplay]=useState(false);
+
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
@@ -32,30 +32,30 @@ const ExpenseForm = (props) => {
     setEnteredAmount("");
     setEnteredDate("");
   };
-  const showFormHandler = () => {
-    setShowForm(true);
-    setButtonPosition(true);
-    setCloseButton(true);
-    setFrmBtnDisplay(true);
-  };
+  // const showFormHandler = () => {
+  //   setShowForm(true);
+  //   setButtonPosition(true);
+  //   setCloseButton(true);
+  //   setFrmBtnDisplay(true);
+  // };
 
-  const clearFormHandler = () =>
-  {
-    setEnteredTitle("");
-    setEnteredAmount("");
-    setEnteredDate("");
-    setShowForm(false);
-    setCloseButton(false);
-    setButtonPosition(false);
-    setFrmBtnDisplay(false);
-  }
+  // const clearFormHandler = () =>
+  // {
+  //   setEnteredTitle("");
+  //   setEnteredAmount("");
+  //   setEnteredDate("");
+  //   setShowForm(false);
+  //   setCloseButton(false);
+  //   setButtonPosition(false);
+  //   setFrmBtnDisplay(false);
+  // }
 
   return (
     <div>
       <form onSubmit={formSubmitHandler}>
         <div
           className="new-expense__controls"
-          style={{ display: showForm ? "flex" : "none" }}
+          // style={{ display: showForm ? "flex" : "none" }}
         >
           <div className="new-expense__control">
             <label>Title</label>
@@ -86,7 +86,7 @@ const ExpenseForm = (props) => {
             ></input>
           </div>
         </div>
-        
+        {/*         
         <div className="btn-form" style={{display: frmBtnDisplay ? "flex" :"inherit"}}>
         <div className="close-button" style={{ textAlign: buttonPosition ? "right" : "center" , display: showCloseButton ? "block" : "none" }}>
             <button onClick={clearFormHandler}>Close</button>
@@ -96,6 +96,11 @@ const ExpenseForm = (props) => {
             Add Expense
           </button>
         </div>
+        </div> */}
+
+        <div className="new-expense__actions">
+          <button onClick={props.onCancel}>Cancel</button>
+          <button type="submit">Add Expense</button>
         </div>
       </form>
     </div>
